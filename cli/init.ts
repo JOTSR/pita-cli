@@ -2,8 +2,9 @@ import { Command, Input, path, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 import { Info, Project, supportedVersions, UUID } from '../definitions.ts'
 import { compareVersions } from '../utils.ts'
-import { template } from '../env.json' assert { type: 'json' }
+import env from '../env.json' assert { type: 'json' }
 
+const { template } = env
 const repoGit = template.repo.git
 
 export const init = new Command()

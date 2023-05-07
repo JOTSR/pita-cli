@@ -1,5 +1,5 @@
-<div style="display: grid; justify-content: center; text-align: center">
-    <img src="./assets/favicon.png" alt="logo" style="width: 150px; height: 150px; margin: auto"/>
+<div align="center">
+    <img src="./assets/favicon.png" alt="logo" style="width: 150px; height: 150px"/>
     <h1>Pita cli</h1>
     <p>Simpliest way to develop secure and powerful webapp for redpitaya.</p>
 </div>
@@ -87,7 +87,7 @@ irm https://deno.land/install.ps1 | iex
 Then reload your shell and run.
 
 ```sh
-deno install -Afqn pita https://raw.githubusercontent.com/JOTSR/pita-cli/main/main.ts
+deno install -Afqn pita https://deno.land/x/pita/main.ts
 ```
 
 ### Standalone install (not support upgrade)

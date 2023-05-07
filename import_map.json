@@ -1,0 +1,9 @@
+{
+	"imports": {
+		"cliffy": "https://deno.land/x/cliffy@v0.25.7/mod.ts",
+		"open": "https://deno.land/x/open@v0.0.6/index.ts",
+		"@std/": "https://deno.land/std@0.186.0/",
+		"fs": "https://deno.land/std@0.186.0/fs/mod.ts",
+		"path": "https://deno.land/std@0.186.0/path/mod.ts"
+	}
+}

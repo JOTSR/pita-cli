@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+	"name": "Deno",
+	"dockerFile": "Dockerfile",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"deno.enable": true,
+				"deno.unstable": false,
+				"explorer.fileNesting.enabled": true,
+				"explorer.fileNesting.patterns": {
+					"*.ts": "${capture}.test.ts,${capture}.js",
+					"*.js": "${capture}.js.map, ${capture}.*.js, ${capture}.d.ts",
+					"*.jsx": "${capture}.js, ${capture}.*.jsx",
+					"*.tsx": "${capture}.js, ${capture}.jsx, ${capture}.ts, ${capture}.*.tsx",
+					"tsconfig.json": "tsconfig.*.json",
+					"package.json": "package-lock.json, yarn.lock",
+					"deno.json*": "deno.lock"
+				},
+				"deno.codeLens.test": true,
+				"deno.suggest.imports.hosts": {
+					"https://deno.land": true,
+					"https://esm.sh": true
+				}
+			},
+			"extensions": [
+				"denoland.vscode-deno"
+			]
+		}
+	},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}

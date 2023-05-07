@@ -1,0 +1,9 @@
+{
+	"fmt": {
+		"singleQuote": true,
+		"semiColons": false,
+		"useTabs": true,
+		"indentWidth": 4
+	},
+	"importMap": "./import_map.json"
+}

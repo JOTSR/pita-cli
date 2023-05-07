@@ -1,4 +1,4 @@
-import { Checkbox, Command, prompt } from 'cliffy'
+import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 export const build = new Command()
 	.name('build')

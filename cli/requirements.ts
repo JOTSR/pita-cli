@@ -1,4 +1,4 @@
-import { Checkbox, Command, EnumType, prompt, Select } from 'cliffy'
+import { Checkbox, Command, EnumType, prompt, Select } from '../deps.ts'
 import {
 	printError,
 	printInfo,
@@ -6,7 +6,7 @@ import {
 	printWarning,
 	shell,
 } from '../utils.ts'
-import { open } from 'open'
+import { open } from '../deps.ts'
 
 const tools = [
 	{

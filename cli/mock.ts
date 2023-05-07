@@ -1,4 +1,4 @@
-import { Command } from 'cliffy'
+import { Command } from '../deps.ts'
 export const mock = new Command()
 	.name('mock')
 	.description('mock the application')

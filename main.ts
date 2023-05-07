@@ -1,4 +1,10 @@
-import { Command, GithubProvider, prompt, Select, UpgradeCommand } from 'cliffy'
+import {
+	Command,
+	GithubProvider,
+	prompt,
+	Select,
+	UpgradeCommand,
+} from './deps.ts'
 import { bench, benchPrompt } from './cli/bench.ts'
 import { build, buildPrompt } from './cli/build.ts'
 import { implement, implementPrompt } from './cli/implement.ts'

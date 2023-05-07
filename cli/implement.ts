@@ -1,4 +1,4 @@
-import { Command } from 'cliffy'
+import { Command } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 export const implement = new Command()
 	.name('implement')

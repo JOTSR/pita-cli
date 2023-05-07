@@ -1,6 +1,5 @@
-import { Command, Input, prompt } from 'cliffy'
+import { Command, Input, path, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
-import { join } from 'path'
 import { Info, Project, supportedVersions, UUID } from '../definitions.ts'
 import { compareVersions } from '../utils.ts'
 import { template } from '../env.json' assert { type: 'json' }
@@ -35,15 +34,15 @@ async function initHandler(
 	await new Deno.Command('git', { args: ['clone', template, destination] })
 		.spawn().status
 	printInfo('init', 'reset git historic')
-	for await (const entry of Deno.readDir(join(destination, '.git'))) {
+	for await (const entry of Deno.readDir(path.join(destination, '.git'))) {
 		if (entry.name === 'hooks') break
-		await Deno.remove(join(destination, '.git', entry.name))
+		await Deno.remove(path.join(destination, '.git', entry.name))
 	}
 	printInfo('init', 'initialize git tracking')
 	await new Deno.Command('git', { args: ['ini', '-b', 'main'] }).spawn()
 		.status
 
-	const projectPath = join(Deno.cwd(), destination, '.pita/project.json')
+	const projectPath = path.join(Deno.cwd(), destination, '.pita/project.json')
 
 	printInfo('init', 'updating project config', projectPath)
 	const project = JSON.parse(await Deno.readTextFile(projectPath)) as Project
@@ -71,7 +70,7 @@ async function initHandler(
 	)
 
 	printInfo('init', 'updating app info', projectPath)
-	const infoPath = join(Deno.cwd(), destination, 'www/info/info.json')
+	const infoPath = path.join(Deno.cwd(), destination, 'www/info/info.json')
 	const info: Info = {
 		name,
 		description,

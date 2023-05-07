@@ -3,8 +3,8 @@ export * as path from 'https://deno.land/std@0.186.0/path/mod.ts'
 export {
 	Checkbox,
 	Command,
+	DenoLandProvider,
 	EnumType,
-	GithubProvider,
 	Input,
 	prompt,
 	Select,

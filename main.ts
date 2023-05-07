@@ -1,6 +1,6 @@
 import {
 	Command,
-	GithubProvider,
+	DenoLandProvider,
 	prompt,
 	Select,
 	UpgradeCommand,
@@ -20,7 +20,7 @@ if (import.meta.main) {
 			'--name pita',
 			'--allow-all',
 		],
-		provider: new GithubProvider({ repository: 'JOTST/pita-cli' }),
+		provider: new DenoLandProvider(),
 	})
 
 	const main = new Command()

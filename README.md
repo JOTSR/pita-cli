@@ -1,5 +1,5 @@
 <div style="display: grid; justify-content: center; text-align: center">
-    <img src="./assets/favicon.png" alt="logo" style="width: 100%; height: 150px; object-fit: contain"/>
+    <img src="./assets/favicon.png" alt="logo" style="width: 150px; height: 150px; margin: auto"/>
     <h1>Pita cli</h1>
     <p>Simpliest way to develop secure and powerful webapp for redpitaya.</p>
 </div>

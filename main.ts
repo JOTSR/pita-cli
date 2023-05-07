@@ -17,7 +17,8 @@ if (import.meta.main) {
 	const upgradeCommand = new UpgradeCommand({
 		main: 'main.ts',
 		args: [
-			'--name pita',
+			'--name',
+			'pita',
 			'--allow-all',
 		],
 		provider: new DenoLandProvider(),
@@ -25,7 +26,7 @@ if (import.meta.main) {
 
 	const main = new Command()
 		.name('pita')
-		.version('0.1.1')
+		.version('0.1.4')
 		.meta('deno', Deno.version.deno)
 		.description('🫓 Project manager for RedPitaya web apps 🫓')
 		.command('requirements', requirements)

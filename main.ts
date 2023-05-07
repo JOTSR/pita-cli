@@ -1,8 +1,4 @@
-import {
-	Command,
-	/*GithubProvider,*/ prompt,
-	Select, /*UpgradeCommand*/
-} from 'cliffy'
+import { Command, GithubProvider, prompt, Select, UpgradeCommand } from 'cliffy'
 import { bench, benchPrompt } from './cli/bench.ts'
 import { build, buildPrompt } from './cli/build.ts'
 import { implement, implementPrompt } from './cli/implement.ts'
@@ -12,18 +8,18 @@ import { requirements, requirementsPrompt } from './cli/requirements.ts'
 import { test, testPrompt } from './cli/test.ts'
 
 if (import.meta.main) {
-	// const upgradeCommand = new UpgradeCommand({
-	// 	main: 'main.ts',
-	// 	args: [
-	// 		'--name pita',
-	// 		'--allow-all',
-	// 	],
-	// 	provider: new GithubProvider({ repository: 'JOTST/pita-cli' }),
-	// })
+	const upgradeCommand = new UpgradeCommand({
+		main: 'main.ts',
+		args: [
+			'--name pita',
+			'--allow-all',
+		],
+		provider: new GithubProvider({ repository: 'JOTST/pita-cli' }),
+	})
 
 	const main = new Command()
 		.name('pita')
-		.version('0.1.0')
+		.version('0.1.1')
 		.meta('deno', Deno.version.deno)
 		.description('🫓 Project manager for RedPitaya web apps 🫓')
 		.command('requirements', requirements)
@@ -33,7 +29,7 @@ if (import.meta.main) {
 		.command('test', test)
 		.command('bench', bench)
 		.command('mock', mock)
-	// .command('upgrade', upgradeCommand)
+		.command('upgrade', upgradeCommand)
 	await main.parse(Deno.args)
 
 	if (Deno.args.length === 0) {
@@ -79,7 +75,7 @@ if (import.meta.main) {
 				await testPrompt()
 				break
 			case 'upgrade 🫓 cli':
-				// await upgradePrompt()
+				await upgradeCommand.parse()
 				break
 			case 'show help':
 			default:

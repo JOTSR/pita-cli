@@ -7,9 +7,7 @@ export const build = new Command()
 	.option('-b, --back', 'Build backend')
 	.option('-g, --fpga', 'Build fpga')
 	.option('-a, --all', 'Build all', { standalone: true, default: true })
-	.action(() => {
-		throw new Error('not implemented')
-	})
+	.action(buildHandler)
 
 export async function buildPrompt() {
 	const options = [

@@ -13,7 +13,10 @@ function print(
 			...styles,
 		)
 	}
-	return console.log(`${icon} %c[${title}] %c${message}`, ...styles)
+	return console.log(
+		`${icon} %c[${title}] %c${message}`,
+		...styles.slice(0, -1),
+	)
 }
 
 export function printInfo(title: string, message: string, detail?: string) {

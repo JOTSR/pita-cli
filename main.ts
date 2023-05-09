@@ -26,7 +26,7 @@ if (import.meta.main) {
 
 	const main = new Command()
 		.name('pita')
-		.version('0.1.4')
+		.version('0.1.5')
 		.meta('deno', Deno.version.deno)
 		.description('🫓 Project manager for RedPitaya web apps 🫓')
 		.command('requirements', requirements)

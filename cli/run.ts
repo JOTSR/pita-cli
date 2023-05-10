@@ -52,8 +52,8 @@ async function runHandler(
 		all?: boolean
 	},
 ) {
-	printInfo('build', 'build process starts')
+	printInfo('run', 'run process starts')
 	await buildHandler({ front, back, fpga, all })
 	await implementHandler()
-	printInfo('build', 'build process ends')
+	printInfo('run', 'run process ends')
 }

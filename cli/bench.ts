@@ -1,5 +1,10 @@
 import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
+
+/* interactive mode */
+await benchPrompt()
+
+/* classic cli */
 export const bench = new Command()
 	.name('bench')
 	.description('bench application')

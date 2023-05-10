@@ -1,5 +1,10 @@
 import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
+
+/* interactive mode */
+await testPrompt()
+
+/* classic cli */
 export const test = new Command()
 	.name('test')
 	.description('test application')

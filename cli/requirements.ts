@@ -261,6 +261,10 @@ const ToolName = new EnumType<Lowercase<Tool['name']>>(
 	tools.map(({ name }) => name.toLowerCase() as Lowercase<Tool['name']>),
 )
 
+/* interactive mode */
+await requirementsPrompt()
+
+/* classic cli */
 export const requirements = new Command()
 	.name('implement')
 	.description('build application')

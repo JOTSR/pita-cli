@@ -1,5 +1,10 @@
 import { Command } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
+
+/* interactive mode */
+await implementPrompt()
+
+/* classic cli */
 export const implement = new Command()
 	.name('implement')
 	.description('implement application into redpitaya')

@@ -7,6 +7,10 @@ import env from '../env.json' assert { type: 'json' }
 const { template } = env
 const repoGit = template.repo.git
 
+/* interactive mode */
+await initPrompt()
+
+/* classic cli */
 export const init = new Command()
 	.name('init')
 	.description('init pita template app')

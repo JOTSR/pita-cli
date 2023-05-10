@@ -2,6 +2,8 @@ import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 
 /* interactive mode */
+console.log(import.meta.url)
+console.log(import.meta.main)
 await testPrompt()
 
 /* classic cli */

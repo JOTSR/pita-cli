@@ -12,7 +12,7 @@ import { run, runPrompt } from './cli/run.ts'
 import { init, initPrompt } from './cli/init.ts'
 import { mock, mockPrompt } from './cli/mock.ts'
 import { requirements, requirementsPrompt } from './cli/requirements.ts'
-import { test, testPrompt } from './cli/test.ts'
+import { test, testPrompt } from './cli/tests.ts'
 
 if (import.meta.main) {
 	const upgradeCommand = new UpgradeCommand({

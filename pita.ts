@@ -15,12 +15,8 @@ import { test, testPrompt } from './cli/test.ts'
 
 if (import.meta.main) {
 	const upgradeCommand = new UpgradeCommand({
-		main: 'main.ts',
-		args: [
-			'--name',
-			'pita',
-			'--allow-all',
-		],
+		main: 'pita.ts',
+		args: ['--allow-all'],
 		provider: new DenoLandProvider(),
 	})
 

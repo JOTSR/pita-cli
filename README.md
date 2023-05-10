@@ -87,7 +87,7 @@ irm https://deno.land/install.ps1 | iex
 Then reload your shell and run.
 
 ```sh
-deno install -Afqn pita https://deno.land/x/pita/main.ts
+deno install -Afqn pita https://deno.land/x/pita/pita.ts
 ```
 
 ### Standalone install (not support upgrade)

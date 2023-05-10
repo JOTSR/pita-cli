@@ -15,7 +15,7 @@ export function implementPrompt() {
 	implementHandler()
 }
 
-async function implementHandler() {
+export async function implementHandler() {
 	printInfo('implement', 'sending build files to board')
 	const { success } = await new Deno.Command('deno', {
 		args: ['task', 'implement'],

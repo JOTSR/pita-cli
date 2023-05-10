@@ -38,7 +38,7 @@ export async function buildPrompt() {
 	})
 }
 
-async function buildHandler(
+export async function buildHandler(
 	{ front, back, fpga, all }: {
 		front?: boolean
 		back?: boolean

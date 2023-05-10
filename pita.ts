@@ -8,6 +8,7 @@ import {
 import { bench, benchPrompt } from './cli/bench.ts'
 import { build, buildPrompt } from './cli/build.ts'
 import { implement, implementPrompt } from './cli/implement.ts'
+import { run, runPrompt } from './cli/run.ts'
 import { init, initPrompt } from './cli/init.ts'
 import { mock, mockPrompt } from './cli/mock.ts'
 import { requirements, requirementsPrompt } from './cli/requirements.ts'
@@ -29,6 +30,7 @@ if (import.meta.main) {
 		.command('init', init)
 		.command('build', build)
 		.command('implement', implement)
+		.command('run', run)
 		.command('test', test)
 		.command('bench', bench)
 		.command('mock', mock)
@@ -41,6 +43,7 @@ if (import.meta.main) {
 			'init a new pita 🫓 project',
 			'build current project',
 			'implement a build into a redpitaya board',
+			'run - alias for build then implement',
 			'test current project',
 			'bench current project',
 			'mock redpitaya board to previewing app',
@@ -69,7 +72,10 @@ if (import.meta.main) {
 				await buildPrompt()
 				break
 			case 'implement a build into a redpitaya board':
-				await implementPrompt()
+				implementPrompt()
+				break
+			case 'run - alias for build then implement':
+				await runPrompt()
 				break
 			case 'mock redpitaya board to previewing app':
 				await mockPrompt()

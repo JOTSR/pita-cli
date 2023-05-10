@@ -262,7 +262,9 @@ const ToolName = new EnumType<Lowercase<Tool['name']>>(
 )
 
 /* interactive mode */
-await requirementsPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'requirements') {
+	await requirementsPrompt()
+}
 
 /* classic cli */
 export const requirements = new Command()

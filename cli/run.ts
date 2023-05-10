@@ -4,7 +4,9 @@ import { buildHandler } from './build.ts'
 import { implementHandler } from './implement.ts'
 
 /* interactive mode */
-await runPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'run') {
+	await runPrompt()
+}
 
 /* classic cli */
 export const run = new Command()

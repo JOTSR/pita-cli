@@ -8,7 +8,9 @@ const { template } = env
 const repoGit = template.repo.git
 
 /* interactive mode */
-await initPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'init') {
+	await initPrompt()
+}
 
 /* classic cli */
 export const init = new Command()

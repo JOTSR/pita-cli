@@ -2,9 +2,9 @@ import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 
 /* interactive mode */
-console.log(import.meta.url)
-console.log(import.meta.main)
-await testPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'test') {
+	await testPrompt()
+}
 
 /* classic cli */
 export const test = new Command()

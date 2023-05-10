@@ -2,7 +2,9 @@ import { Command } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 
 /* interactive mode */
-await implementPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'implement') {
+	implementPrompt()
+}
 
 /* classic cli */
 export const implement = new Command()

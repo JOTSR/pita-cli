@@ -2,7 +2,9 @@ import { Checkbox, Command, prompt } from '../deps.ts'
 import { printError, printInfo, printSuccess } from '../utils.ts'
 
 /* interactive mode */
-await benchPrompt()
+if (Deno.args.length === 1 && Deno.args[0] === 'bench') {
+	await benchPrompt()
+}
 
 /* classic cli */
 export const bench = new Command()

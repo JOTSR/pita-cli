@@ -58,19 +58,16 @@ async function mockHandler(
 
 	printInfo('mock', `start mocking ${modules.join(', ')}`)
 
+	const processes = {
+		front: new Deno.Command('deno', { args: ['task', 'mock:front'] }),
+		back: new Deno.Command('deno', { args: ['task', 'mock:back'] }),
+		fpga: new Deno.Command('deno', { args: ['task', 'mock:fpga'] }),
+	}
+
 	const mocks = await Promise.allSettled([
-		front || all
-			? new Deno.Command('deno', { args: ['task', 'mock:front'] })
-				.output()
-			: { success: true },
-		back || all
-			? new Deno.Command('deno', { args: ['task', 'mock:back'] })
-				.output()
-			: { success: true },
-		fpga || all
-			? new Deno.Command('deno', { args: ['task', 'mock:fpga'] })
-				.output()
-			: { success: true },
+		front || all ? processes.front.spawn().status : { success: true },
+		back || all ? processes.back.spawn().status : { success: true },
+		fpga || all ? processes.fpga.spawn().status : { success: true },
 	])
 
 	const names = ['frontend', 'backend', 'fpga']

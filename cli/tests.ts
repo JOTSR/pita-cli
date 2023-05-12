@@ -56,17 +56,16 @@ async function testHandler(
 
 	printInfo('test', `start testing ${modules.join(', ')}`)
 
+	const processes = {
+		front: new Deno.Command('deno', { args: ['task', 'test:front'] }),
+		back: new Deno.Command('deno', { args: ['task', 'test:back'] }),
+		fpga: new Deno.Command('deno', { args: ['task', 'test:fpga'] }),
+	}
+
 	const tests = await Promise.allSettled([
-		front || all
-			? new Deno.Command('deno', { args: ['task', 'test:front'] })
-				.output()
-			: { success: true },
-		back || all
-			? new Deno.Command('deno', { args: ['task', 'test:back'] }).output()
-			: { success: true },
-		fpga || all
-			? new Deno.Command('deno', { args: ['task', 'test:fpga'] }).output()
-			: { success: true },
+		front || all ? processes.front.spawn().status : { success: true },
+		back || all ? processes.back.spawn().status : { success: true },
+		fpga || all ? processes.fpga.spawn().status : { success: true },
 	])
 
 	const names = ['frontend', 'backend', 'fpga']

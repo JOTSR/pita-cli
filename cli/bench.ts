@@ -56,19 +56,16 @@ async function benchHandler(
 
 	printInfo('bench', `start benching ${modules.join(', ')}`)
 
+	const processes = {
+		front: new Deno.Command('deno', { args: ['task', 'bench:front'] }),
+		back: new Deno.Command('deno', { args: ['task', 'bench:back'] }),
+		fpga: new Deno.Command('deno', { args: ['task', 'bench:fpga'] }),
+	}
+
 	const benchs = await Promise.allSettled([
-		front || all
-			? new Deno.Command('deno', { args: ['task', 'bench:front'] })
-				.output()
-			: { success: true },
-		back || all
-			? new Deno.Command('deno', { args: ['task', 'bench:back'] })
-				.output()
-			: { success: true },
-		fpga || all
-			? new Deno.Command('deno', { args: ['task', 'bench:fpga'] })
-				.output()
-			: { success: true },
+		front || all ? processes.front.spawn().status : { success: true },
+		back || all ? processes.back.spawn().status : { success: true },
+		fpga || all ? processes.fpga.spawn().status : { success: true },
 	])
 
 	const names = ['frontend', 'backend', 'fpga']

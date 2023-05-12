@@ -7,6 +7,7 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/JOTSR/pita-cli/total?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/JOTSR/pita-cli?style=flat-square)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/JOTSR/pita-cli?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JOTSR/pita-cli/ci.yml?style=flat-square)
 
 Pita 🫓 is a cli tool to scaffold and manage webapp for
 [redpitaya](https://redpitaya.com/). It allows you to code, build and implement

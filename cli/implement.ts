@@ -21,7 +21,7 @@ export async function implementHandler() {
 	printInfo('implement', 'sending build files to board')
 	const { success } = await new Deno.Command('deno', {
 		args: ['task', 'implement'],
-	}).output()
+	}).spawn().status
 	if (success) {
 		printSuccess('implement', 'files correctly implemented to board')
 	} else {

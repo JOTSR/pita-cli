@@ -13,7 +13,7 @@ export const build = new Command()
 	.option('-f, --front', 'Build frontend')
 	.option('-b, --back', 'Build backend')
 	.option('-g, --fpga', 'Build fpga')
-	.option('-a, --all', 'Build all', { standalone: true, default: true })
+	.option('-a, --all', 'Build all', { standalone: true, default: false })
 	.action(buildHandler)
 
 export async function buildPrompt() {

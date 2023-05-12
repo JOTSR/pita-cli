@@ -15,7 +15,7 @@ export const mock = new Command()
 	.option('-f, --front', 'mock frontend')
 	.option('-b, --back', 'mock backend')
 	.option('-g, --fpga', 'mock fpga')
-	.option('-a, --all', 'mock all', { standalone: true, default: true })
+	.option('-a, --all', 'mock all', { standalone: true, default: false })
 	.action(mockHandler)
 
 export async function mockPrompt() {

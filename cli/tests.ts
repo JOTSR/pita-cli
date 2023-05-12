@@ -13,7 +13,7 @@ export const test = new Command()
 	.option('-f, --front', 'Test frontend')
 	.option('-b, --back', 'Test backend')
 	.option('-g, --fpga', 'Test fpga')
-	.option('-a, --all', 'Test all', { standalone: true })
+	.option('-a, --all', 'Test all', { standalone: true, default: false })
 	.action(testHandler)
 
 export async function testPrompt() {

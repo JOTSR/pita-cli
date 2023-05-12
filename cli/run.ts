@@ -17,7 +17,7 @@ export const run = new Command()
 	.option('-f, --front', 'run frontend')
 	.option('-b, --back', 'run backend')
 	.option('-g, --fpga', 'run fpga')
-	.option('-a, --all', 'run all', { standalone: true, default: true })
+	.option('-a, --all', 'run all', { standalone: true, default: false })
 	.action(runHandler)
 
 export async function runPrompt() {

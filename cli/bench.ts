@@ -13,7 +13,7 @@ export const bench = new Command()
 	.option('-f, --front', 'Bench frontend')
 	.option('-b, --back', 'Bench backend')
 	.option('-g, --fpga', 'Bench fpga')
-	.option('-a, --all', 'Bench all', { standalone: true, default: true })
+	.option('-a, --all', 'Bench all', { standalone: true, default: false })
 	.action(benchHandler)
 
 export async function benchPrompt() {

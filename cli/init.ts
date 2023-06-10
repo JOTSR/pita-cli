@@ -46,7 +46,7 @@ async function initHandler(
 		await Deno.remove(path.join(destination, '.git', entry.name))
 	}
 	printInfo('init', 'initialize git tracking')
-	await new Deno.Command('git', { args: ['ini', '-b', 'main'] }).spawn()
+	await new Deno.Command('git', { args: ['init', '-b', 'main'] }).spawn()
 		.status
 
 	const projectPath = path.join(Deno.cwd(), destination, '.pita/project.json')

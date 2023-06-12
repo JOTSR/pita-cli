@@ -1,3 +1,12 @@
+import { bench, benchPrompt } from './cli/bench.ts'
+import { build, buildPrompt } from './cli/build.ts'
+import { implement, implementPrompt } from './cli/implement.ts'
+import { init, initPrompt } from './cli/init.ts'
+import { link, linkPrompt } from './cli/link.ts'
+import { mock, mockPrompt } from './cli/mock.ts'
+import { requirements, requirementsPrompt } from './cli/requirements.ts'
+import { run, runPrompt } from './cli/run.ts'
+import { test, testPrompt } from './cli/tests.ts'
 import {
 	Command,
 	DenoLandProvider,
@@ -5,14 +14,6 @@ import {
 	Select,
 	UpgradeCommand,
 } from './deps.ts'
-import { bench, benchPrompt } from './cli/bench.ts'
-import { build, buildPrompt } from './cli/build.ts'
-import { implement, implementPrompt } from './cli/implement.ts'
-import { run, runPrompt } from './cli/run.ts'
-import { init, initPrompt } from './cli/init.ts'
-import { mock, mockPrompt } from './cli/mock.ts'
-import { requirements, requirementsPrompt } from './cli/requirements.ts'
-import { test, testPrompt } from './cli/tests.ts'
 
 if (import.meta.main) {
 	const upgradeCommand = new UpgradeCommand({
@@ -34,6 +35,7 @@ if (import.meta.main) {
 		.command('test', test)
 		.command('bench', bench)
 		.command('mock', mock)
+		.command('link', link)
 		.command('upgrade', upgradeCommand)
 	await main.parse(Deno.args)
 
@@ -47,6 +49,7 @@ if (import.meta.main) {
 			'test current project',
 			'bench current project',
 			'mock redpitaya board to previewing app',
+			'passwordless link to current project board',
 			'upgrade 🫓 cli',
 			'show help',
 		] as const
@@ -82,6 +85,9 @@ if (import.meta.main) {
 				break
 			case 'test current project':
 				await testPrompt()
+				break
+			case 'passwordless link to current project board':
+				linkPrompt()
 				break
 			case 'upgrade 🫓 cli':
 				await upgradeCommand.parse()
